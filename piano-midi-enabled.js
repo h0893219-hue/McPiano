@@ -1,4 +1,3 @@
-// MIDI file upload is enabled in this ready-to-use version.
 const ENABLE_MIDI_FILE_UPLOAD = true;
 
 let ws = null;
@@ -12,7 +11,6 @@ let isDragging = false;
 let lastPlayedNote = null;
 let pressedKeys = new Set();
 
-// MIDI File Player variables
 let midiFileData = null;
 let isPlaying = false;
 let isPaused = false;
@@ -27,7 +25,6 @@ const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 
 const STORAGE_KEY_MIDI_DEVICE = 'piano_last_midi_device';
 const STORAGE_KEY_INSTRUMENT = 'piano_instrument';
 
-// Keyboard hotkey mapping to MIDI notes
 const KEYBOARD_TO_MIDI = {
     'q': 60,
     'w': 62,
@@ -237,7 +234,6 @@ function retryConnect() {
     setTimeout(connectWebSocket, 250);
 }
 
-// MIDI File Parser
 function parseMIDIFile(arrayBuffer) {
     const view = new DataView(arrayBuffer);
     let offset = 0;
@@ -945,7 +941,6 @@ async function tryAutoConnectMidiDevice() {
     return false;
 }
 
-// Bind controls after the DOM has loaded.
 function initializePianoPage() {
     const openMidiBtn = document.getElementById('openMidiBtn');
     if (openMidiBtn) {
